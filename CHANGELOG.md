@@ -19,6 +19,12 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.0.1](https://github.com/perfect-panel/frontend/compare/v1.0.0...v1.0.1) (2025-11-27)
+
+### 🐛 Bug Fixes / 问题修复
+
+* configure axios request with base URL and update typings ([0f393c7](https://github.com/perfect-panel/frontend/commit/0f393c77efc89591ac3be6ced73763ea9beb6e77))
+
 ## 1.0.0 (2025-11-27)
 
 ### ✨ Features / 新功能
