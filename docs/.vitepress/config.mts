@@ -1,17 +1,13 @@
 import { defineConfig } from "vitepress";
 import { defineTeekConfig } from "vitepress-theme-teek/config";
 
-// Teek 主题配置
 const teekConfig = defineTeekConfig({
-  // 文章元数据配置
   article: {
     author: "PPanel",
   },
-  // 页脚配置
   footer: {
     copyright: "Copyright © 2025 PPanel",
   },
-  // 评论按钮配置 - 跳转到 Telegram 群组
   toComment: {
     enabled: true,
     done: () => {
@@ -28,7 +24,6 @@ export default defineConfig({
   description:
     "PPanel is a pure, professional, and perfect open-source proxy panel tool, designed to be your ideal choice for learning and practical use.",
 
-  // 国际化配置
   locales: {
     root: {
       label: "English",
@@ -36,10 +31,10 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: "Home", link: "/" },
-          { text: "Guide", link: "/zh/guide/intro" },
-          { text: "Features", link: "/zh/admin/dashboard" },
-          { text: "API", link: "/zh/api/reference" },
-          { text: "Sponsors", link: "/zh/sponsors" },
+          { text: "Guide", link: "/guide/intro" },
+          { text: "Features", link: "/admin/dashboard" },
+          { text: "API", link: "/api/reference" },
+          { text: "Sponsors", link: "/sponsors" },
           {
             text: "Stats",
             link: "https://stats.ppanel.dev",
