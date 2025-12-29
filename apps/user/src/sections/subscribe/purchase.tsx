@@ -74,9 +74,13 @@ export default function Purchase({
 
   useEffect(() => {
     if (subscribe) {
+      const defaultQuantity =
+        subscribe.show_original_price === false && subscribe.discount?.[0]
+          ? subscribe.discount[0].quantity
+          : 1;
       setParams((prev) => ({
         ...prev,
-        quantity: 1,
+        quantity: defaultQuantity,
         subscribe_id: subscribe?.id,
       }));
     }
@@ -146,6 +150,7 @@ export default function Purchase({
                   handleChange("quantity", value);
                 }}
                 quantity={params.quantity as number}
+                showOriginalPrice={subscribe?.show_original_price}
                 unitTime={subscribe?.unit_time}
               />
               <CouponInput

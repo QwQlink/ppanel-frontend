@@ -72,9 +72,13 @@ export default function Renewal({ id, subscribe }: Readonly<RenewalProps>) {
 
   useEffect(() => {
     if (subscribe.id && id) {
+      const defaultQuantity =
+        subscribe.show_original_price === false && subscribe.discount?.[0]
+          ? subscribe.discount[0].quantity
+          : 1;
       setParams((prev) => ({
         ...prev,
-        quantity: 1,
+        quantity: defaultQuantity,
         subscribe_id: subscribe.id,
         user_subscribe_id: id,
       }));
@@ -145,6 +149,7 @@ export default function Renewal({ id, subscribe }: Readonly<RenewalProps>) {
                   handleChange("quantity", value);
                 }}
                 quantity={params.quantity!}
+                showOriginalPrice={subscribe?.show_original_price}
                 unitTime={subscribe?.unit_time}
               />
               <CouponInput
