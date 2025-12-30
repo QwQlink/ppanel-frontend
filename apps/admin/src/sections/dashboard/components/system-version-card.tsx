@@ -80,7 +80,6 @@ export default function SystemVersionCard() {
     staleTime: 0,
     retry: 1,
   });
-  console.log(webVersionInfo);
 
   const updateServerMutation = useMutation({
     mutationFn: async (serviceName: string) => {
@@ -199,7 +198,7 @@ export default function SystemVersionCard() {
                 >
                   <Icon className="mr-1 h-3 w-3" icon="mdi:download" />
                   {hasWebNewVersion && webVersionInfo
-                    ? `${t("update", "Update")} V${webVersionInfo.latest_version}`
+                    ? `${t("update", "Update")} ${webVersionInfo.latest_version}`
                     : t("update", "Update")}
                 </Button>
               </AlertDialogTrigger>
@@ -212,9 +211,9 @@ export default function SystemVersionCard() {
                     {webVersionInfo
                       ? t(
                           "updateWebDescription",
-                          "Are you sure you want to update the web version from V{{current}} to V{{latest}}?",
+                          "Are you sure you want to update the web version from {{current}} to {{latest}}?",
                           {
-                            current: packageJson.version,
+                            current: webVersionInfo.current_version,
                             latest: webVersionInfo.latest_version,
                           }
                         )
@@ -278,7 +277,7 @@ export default function SystemVersionCard() {
                     {serverVersionInfo && moduleConfig
                       ? t(
                           "updateServerDescription",
-                          "Are you sure you want to update the server version from V{{current}} to V{{latest}}?",
+                          "Are you sure you want to update the server version from {{current}} to {{latest}}?",
                           {
                             current:
                               moduleConfig.service_version ||

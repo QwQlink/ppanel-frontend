@@ -193,7 +193,7 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   (response) => {
     const { code } = response.data;
-    if (code !== 200) {
+    if (code !== 200 && code !== 0) {
       handleError({
         data: response.data,
         config: {
