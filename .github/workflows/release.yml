@@ -5,6 +5,7 @@ on:
     branches: [main, next, beta, develop]
     paths-ignore:
       - 'docs/**'
+  workflow_dispatch:
 
 permissions:
   contents: write
